@@ -9,12 +9,11 @@ function VoucherForm({ onAddVoucher } : VoucherFormProps) {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState<number>(0);
   const [image, setImage] = useState('');
-  const [id] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const newVoucher: Voucher = {
-      id: id || Math.random().toString(36).substr(2, 9),  
+      id: Math.random().toString(36).substr(2, 9),  
       description,
       price,
       image,
