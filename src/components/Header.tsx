@@ -1,22 +1,23 @@
 import { Link } from 'react-router-dom';
+import styles from './Header.module.css';
 
 function Header() {
-  return (
-    <header className="header">
-      <div className="header-left">
-        <h1>
-            <Link to="/" className="brand-link">
-                YourVoucher
+    return (
+      <header className={styles.header}>
+        <div className={styles['header-left']}>
+          <h1>
+            <Link to="/" className={styles['brand-link']}>
+              YourVoucher
             </Link>
-        </h1>
-      </div>
-      <div className="header-right">
-        <Link to="/admin" className="admin-link">
-          Admin
-        </Link>
-      </div>
-    </header>
-  );
-};
-
-export default Header;
+          </h1>
+        </div>
+        <div className={styles['header-right']}>
+          <Link to="/admin" className={styles['admin-link']}>
+            Admin
+          </Link>
+        </div>
+      </header>
+    );
+  };
+  
+  export default Header;
