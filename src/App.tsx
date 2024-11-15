@@ -15,11 +15,13 @@ function App() {
   };
 
   const buyVoucher = (voucher: Voucher) => {
-    setSales([...sales, { voucherId: voucher.id, date: new Date().toISOString() }]);
+    setSales([...sales, { voucherId: voucher.id, date: new Date().toISOString(), used: false }]);
   };
 
-  const markAsUsed = (voucherId: string) => {
-    setVouchers(vouchers.map(v => v.id === voucherId ? { ...v, used: true } : v));
+  const onMarkSaleAsUsed = (saleIndex: number) => {
+    setSales(sales.map((sale, index) =>
+      index === saleIndex ? { ...sale, used: true } : sale
+    ));
   };
 
   return (
@@ -29,7 +31,17 @@ function App() {
         <h1>Voucher Purchase</h1>
         <Routes>
           <Route path="/" element={<Home vouchers={vouchers} onBuy={buyVoucher} />} />
-          <Route path="/admin" element={<Admin vouchers={vouchers} sales={sales} onAddVoucher={addVoucher} onMarkAsUsed={markAsUsed} />} />
+          <Route
+            path="/admin"
+            element={
+              <Admin
+                vouchers={vouchers}
+                sales={sales}
+                onAddVoucher={addVoucher}
+                onMarkSaleAsUsed={onMarkSaleAsUsed}
+              />
+            }
+          />
         </Routes>
       </div>
     </Router>

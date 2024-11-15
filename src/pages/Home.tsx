@@ -10,7 +10,7 @@ function Home({ vouchers, onBuy } : HomePageProps) {
   return (
     <div>
       <h2>Home Page - Buy a Voucher</h2>
-      <VoucherList vouchers={vouchers} onBuy={onBuy} onMarkAsUsed={() => {}} />
+      <VoucherList vouchers={vouchers} onBuy={onBuy} />
     </div>
   );
 };

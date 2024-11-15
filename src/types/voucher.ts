@@ -9,4 +9,5 @@ export interface Voucher {
   export interface Sale {
     voucherId: string;
     date: string;
+    used: boolean;
   }

@@ -5,10 +5,9 @@ import styles from './VoucherList.module.css';
 interface VoucherListProps {
   vouchers: Voucher[];
   onBuy: (voucher: Voucher) => void;
-  onMarkAsUsed: (voucherId: string) => void;
 }
 
-function VoucherList({ vouchers, onBuy, onMarkAsUsed }: VoucherListProps) {
+function VoucherList({ vouchers, onBuy}: VoucherListProps) {
   return (
     <div className={styles.list}>
       {vouchers.map(voucher => (
@@ -16,7 +15,6 @@ function VoucherList({ vouchers, onBuy, onMarkAsUsed }: VoucherListProps) {
           <VoucherCard
             voucher={voucher}
             onBuy={onBuy}
-            onMarkAsUsed={onMarkAsUsed}
           />
         </div>
       ))}
