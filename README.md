@@ -11,6 +11,8 @@ This is a web application that allows users to browse, purchase, and manage disc
 - TypeScript: For type safety and improved development experience.
 - CSS Modules: For scoped styling of components.
 - Jest & React Testing Library: For unit testing the components.
+- React Router: For handling routing between pages (Admin and Home).
+- Context API: For global state management with VoucherContext.
 
 ## Setup
 1. Clone the repository:
