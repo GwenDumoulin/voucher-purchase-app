@@ -1,5 +1,5 @@
 import { Sale, Voucher } from '../types/voucher';
-import styles from './SalesList.module.css';
+import styles from '../styles/SalesList.module.css';
 
 interface SalesListProps {
   sales: Sale[];

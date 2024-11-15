@@ -1,6 +1,6 @@
 import { Voucher } from '../types/voucher';
 import VoucherCard from './VoucherCard';
-import styles from './VoucherList.module.css';
+import styles from '../styles/VoucherList.module.css';
 
 interface VoucherListProps {
   vouchers: Voucher[];

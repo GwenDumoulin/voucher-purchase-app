@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Voucher } from '../types/voucher';
-import styles from './VoucherForm.module.css';
+import styles from '../styles/VoucherForm.module.css';
 
 interface VoucherFormProps {
   addVoucher: (voucher: Voucher) => void;

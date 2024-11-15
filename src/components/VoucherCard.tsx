@@ -1,5 +1,5 @@
 import { Voucher } from '../types/voucher';
-import styles from './VoucherCard.module.css';
+import styles from '../styles/VoucherCard.module.css';
 
 interface VoucherCardProps {
   voucher: Voucher;
