@@ -9,7 +9,7 @@ type HomePageProps = {
 function Home({ vouchers, onBuy } : HomePageProps) {
   return (
     <div>
-      <h2>Home Page - Buy a Voucher</h2>
+      <h2>Buy a Voucher</h2>
       <VoucherList vouchers={vouchers} onBuy={onBuy} />
     </div>
   );

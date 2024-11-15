@@ -28,21 +28,22 @@ function App() {
     <Router>
       <div>
         <Header />
-        <h1>Voucher Purchase</h1>
-        <Routes>
-          <Route path="/" element={<Home vouchers={vouchers} onBuy={buyVoucher} />} />
-          <Route
-            path="/admin"
-            element={
-              <Admin
-                vouchers={vouchers}
-                sales={sales}
-                onAddVoucher={addVoucher}
-                onMarkSaleAsUsed={onMarkSaleAsUsed}
-              />
-            }
-          />
-        </Routes>
+        <div className="pagesContainer">
+          <Routes>
+            <Route path="/" element={<Home vouchers={vouchers} onBuy={buyVoucher} />} />
+            <Route
+              path="/admin"
+              element={
+                <Admin
+                  vouchers={vouchers}
+                  sales={sales}
+                  onAddVoucher={addVoucher}
+                  onMarkSaleAsUsed={onMarkSaleAsUsed}
+                />
+              }
+            />
+          </Routes>
+        </div>
       </div>
     </Router>
   );

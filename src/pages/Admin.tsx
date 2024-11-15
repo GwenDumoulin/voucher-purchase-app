@@ -14,7 +14,6 @@ function Admin({ vouchers, sales, onAddVoucher, onMarkSaleAsUsed } : AdminPagePr
     <div>
       <h2>Admin Page</h2>
       <VoucherForm onAddVoucher={onAddVoucher} />
-      <h3>Sales</h3>
       <SalesList sales={sales} vouchers={vouchers} onMarkSaleAsUsed={onMarkSaleAsUsed} />
     </div>
   );
