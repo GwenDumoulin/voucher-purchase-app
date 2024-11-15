@@ -1,4 +1,5 @@
 import { Voucher } from '../types/voucher';
+import styles from './VoucherCard.module.css';
 
 interface VoucherCardProps {
   voucher: Voucher;
@@ -8,14 +9,18 @@ interface VoucherCardProps {
 
 function VoucherCard({ voucher, onBuy, onMarkAsUsed } : VoucherCardProps) {
   return (
-    <div>
-      <img src={voucher.image} alt={voucher.description} width="100" />
-      <h3>{voucher.description}</h3>
-      <p>Price: ${voucher.price}</p>
-      <button onClick={() => onBuy(voucher)}>Buy</button>
-      {!voucher.used && <button onClick={() => onMarkAsUsed(voucher.id)}>Mark as used</button>}
+    <div className={styles.card}>
+      <img src={voucher.image} alt={voucher.description} className={styles.image} />
+      <h3 className={styles.title}>{voucher.description}</h3>
+      <p className={styles.price}>Price: ${voucher.price}</p>
+      <button onClick={() => onBuy(voucher)} className={styles.button}>Buy</button>
+      {!voucher.used && (
+        <button onClick={() => onMarkAsUsed(voucher.id)} className={styles.button}>
+          Mark as used
+        </button>
+      )}
     </div>
   );
-};
+}
 
 export default VoucherCard;
