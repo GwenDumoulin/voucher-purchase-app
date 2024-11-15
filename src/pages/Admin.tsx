@@ -1,20 +1,15 @@
 import VoucherForm from '../components/VoucherForm';
 import SalesList from '../components/SalesList';
-import { Voucher, Sale } from '../types/voucher';
+import { useVouchers } from '../contexts/VoucherContext';
 
-type AdminPageProps = {
-  vouchers: Voucher[];
-  sales: Sale[];
-  onAddVoucher: (voucher: Voucher) => void;
-  onMarkSaleAsUsed: (saleIndex: number) => void; 
-};
 
-function Admin({ vouchers, sales, onAddVoucher, onMarkSaleAsUsed } : AdminPageProps) {
+function Admin() {
+  const { vouchers, sales, addVoucher, markSaleAsUsed } = useVouchers();
   return (
     <div>
       <h2>Admin Page</h2>
-      <VoucherForm onAddVoucher={onAddVoucher} />
-      <SalesList sales={sales} vouchers={vouchers} onMarkSaleAsUsed={onMarkSaleAsUsed} />
+      <VoucherForm addVoucher={addVoucher} />
+      <SalesList sales={sales} vouchers={vouchers} markSaleAsUsed={markSaleAsUsed} />
     </div>
   );
 };

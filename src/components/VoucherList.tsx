@@ -4,17 +4,17 @@ import styles from './VoucherList.module.css';
 
 interface VoucherListProps {
   vouchers: Voucher[];
-  onBuy: (voucher: Voucher) => void;
+  buyVoucher: (voucher: Voucher) => void;
 }
 
-function VoucherList({ vouchers, onBuy}: VoucherListProps) {
+function VoucherList({ vouchers, buyVoucher}: VoucherListProps) {
   return (
     <div className={styles.list}>
       {vouchers.map(voucher => (
         <div key={voucher.id} className={styles.listItem}>
           <VoucherCard
             voucher={voucher}
-            onBuy={onBuy}
+            buyVoucher={buyVoucher}
           />
         </div>
       ))}

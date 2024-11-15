@@ -4,10 +4,10 @@ import styles from './SalesList.module.css';
 interface SalesListProps {
   sales: Sale[];
   vouchers: Voucher[];
-  onMarkSaleAsUsed: (saleIndex: number) => void; 
+  markSaleAsUsed: (saleIndex: number) => void; 
 }
 
-function SalesList({ sales, vouchers, onMarkSaleAsUsed }: SalesListProps) {
+function SalesList({ sales, vouchers, markSaleAsUsed }: SalesListProps) {
   return (
     <div>
       <h2>Sales</h2>
@@ -23,7 +23,7 @@ function SalesList({ sales, vouchers, onMarkSaleAsUsed }: SalesListProps) {
                 <span className={styles.used}>Used</span>
               ) : (
                 <button
-                  onClick={() => onMarkSaleAsUsed(index)} 
+                  onClick={() => markSaleAsUsed(index)} 
                   className={styles.button}
                 >
                   Mark as used

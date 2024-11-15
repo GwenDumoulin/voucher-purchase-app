@@ -3,10 +3,10 @@ import { Voucher } from '../types/voucher';
 import styles from './VoucherForm.module.css';
 
 interface VoucherFormProps {
-  onAddVoucher: (voucher: Voucher) => void;
+  addVoucher: (voucher: Voucher) => void;
 }
 
-function VoucherForm({ onAddVoucher }: VoucherFormProps) {
+function VoucherForm({ addVoucher }: VoucherFormProps) {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState<number>(0);
   const [image, setImage] = useState('');
@@ -20,7 +20,7 @@ function VoucherForm({ onAddVoucher }: VoucherFormProps) {
       image,
       used: false,
     };
-    onAddVoucher(newVoucher);
+    addVoucher(newVoucher);
     setDescription('');
     setPrice(0);
     setImage('');

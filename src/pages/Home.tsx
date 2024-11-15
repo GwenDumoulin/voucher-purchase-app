@@ -1,16 +1,13 @@
 import VoucherList from '../components/VoucherList';
-import { Voucher } from '../types/voucher';
+import { useVouchers } from '../contexts/VoucherContext';
 
-type HomePageProps = {
-  vouchers: Voucher[];
-  onBuy: (voucher: Voucher) => void;
-};
 
-function Home({ vouchers, onBuy } : HomePageProps) {
+function Home() {
+  const { vouchers, buyVoucher } = useVouchers();
   return (
     <div>
       <h2>Buy a Voucher</h2>
-      <VoucherList vouchers={vouchers} onBuy={onBuy} />
+      <VoucherList vouchers={vouchers} buyVoucher={buyVoucher} />
     </div>
   );
 };

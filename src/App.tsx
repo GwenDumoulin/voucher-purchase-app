@@ -1,52 +1,25 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useState } from 'react'
 import Home from './pages/Home';
 import Admin from './pages/Admin';
 import Header from './components/Header';
-import { Voucher, Sale } from './types/voucher';
+import { VoucherProvider } from './contexts/VoucherContext';
 import './App.css'
 
 function App() {
-  const [vouchers, setVouchers] = useState<Voucher[]>([]);
-  const [sales, setSales] = useState<Sale[]>([]);
-
-  const addVoucher = (voucher: Voucher) => {
-    setVouchers([...vouchers, voucher]);
-  };
-
-  const buyVoucher = (voucher: Voucher) => {
-    setSales([...sales, { voucherId: voucher.id, date: new Date().toISOString(), used: false }]);
-  };
-
-  const onMarkSaleAsUsed = (saleIndex: number) => {
-    setSales(sales.map((sale, index) =>
-      index === saleIndex ? { ...sale, used: true } : sale
-    ));
-  };
-
   return (
-    <Router>
-      <div>
+    <VoucherProvider>
+      <Router>
         <Header />
         <div className="pagesContainer">
+          <h1>Voucher Purchase</h1>
           <Routes>
-            <Route path="/" element={<Home vouchers={vouchers} onBuy={buyVoucher} />} />
-            <Route
-              path="/admin"
-              element={
-                <Admin
-                  vouchers={vouchers}
-                  sales={sales}
-                  onAddVoucher={addVoucher}
-                  onMarkSaleAsUsed={onMarkSaleAsUsed}
-                />
-              }
-            />
+            <Route path="/" element={<Home />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </VoucherProvider>
   );
 }
 
-export default App
+export default App;
