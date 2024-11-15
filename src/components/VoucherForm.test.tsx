@@ -7,6 +7,7 @@ describe('VoucherForm', () => {
   it('should render the form with inputs and a button', () => {
     render(<VoucherForm addVoucher={() => {}} />);
 
+    // Check fields
     expect(screen.getByPlaceholderText(/Voucher Description/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/Price/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/Image URL/i)).toBeInTheDocument();
@@ -18,12 +19,15 @@ describe('VoucherForm', () => {
 
     render(<VoucherForm addVoucher={addVoucherMock} />);
 
+    // Fake values
     await userEvent.type(screen.getByPlaceholderText(/Voucher Description/i), 'Discount Voucher');
     await userEvent.type(screen.getByPlaceholderText(/Price/i), '50');
     await userEvent.type(screen.getByPlaceholderText(/Image URL/i), 'https://example.com/voucher.png');
 
+    // Submit form
     userEvent.click(screen.getByRole('button', { name: /Add a Voucher/i }));
 
+    // Check 'addVoucher' function
     await waitFor(() => {
       expect(addVoucherMock).toHaveBeenCalledTimes(1);
       expect(addVoucherMock).toHaveBeenCalledWith({
@@ -35,6 +39,7 @@ describe('VoucherForm', () => {
       });
     });
 
+    // Check fields reinitialisation
     expect((screen.getByPlaceholderText(/Voucher Description/i) as HTMLInputElement).value).toBe('');
     expect((screen.getByPlaceholderText(/Price/i) as HTMLInputElement).value).toBe('0');
     expect((screen.getByPlaceholderText(/Image URL/i) as HTMLInputElement).value).toBe('');
