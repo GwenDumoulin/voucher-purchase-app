@@ -7,23 +7,24 @@ export function useVoucherManagement() {
       id: '1',
       description: '50% Discount Voucher',
       price: 20,
-      image: 'https://via.placeholder.com/150',
+      image: 'https://placehold.co/200',
       used: false,
     },
     {
       id: '2',
-      description: 'Free Shipping Voucher',
-      price: 10,
-      image: 'https://via.placeholder.com/150',
+      description: 'Get a Free Pumpkin',
+      price: 15,
+      image: 'http://localhost:5173/pumpkin.jpg',
       used: false,
     },
     {
       id: '3',
-      description: 'Buy One Get One Free',
-      price: 15,
-      image: 'https://via.placeholder.com/150',
+      description: 'Free Shipping Voucher',
+      price: 10,
+      image: 'https://placehold.co/200',
       used: false,
     },
+    
   ];
 
   const [vouchers, setVouchers] = useState<Voucher[]>(defaultVouchers);

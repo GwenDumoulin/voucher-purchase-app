@@ -6,6 +6,8 @@
   padding: 16px;
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 232px;
+  height: 380px;
 }
 
 .card:hover {
@@ -13,10 +15,15 @@
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
+.divImg {
+    min-height: 206px;
+    margin-bottom: 12px;
+}
+
 .card img {
-  max-width: 300px;
+  max-height: 200px;
+  width: 200px;
   border-radius: 8px;
-  margin-bottom: 12px;
 }
 
 .card h3 {
